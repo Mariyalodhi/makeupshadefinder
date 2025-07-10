@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(330, 85%, 60%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Vibrant Makeup Colors */
+  --makeup-pink: hsl(330, 85%, 60%);
+  --makeup-coral: hsl(15, 85%, 65%);
+  --makeup-purple: hsl(280, 70%, 65%);
+  --makeup-gold: hsl(43, 90%, 60%);
+  --makeup-rose: hsl(345, 80%, 70%);
+  --makeup-bronze: hsl(30, 60%, 55%);
+  --makeup-cream: hsl(50, 40%, 88%);
+  --gradient-start: hsl(330, 85%, 60%);
+  --gradient-end: hsl(280, 70%, 65%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(43, 74%, 49%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .hero-gradient {
+    background: linear-gradient(135deg, 
+      hsl(330, 85%, 60%) 0%, 
+      hsl(280, 70%, 65%) 25%,
+      hsl(43, 90%, 60%) 50%,
+      hsl(15, 85%, 65%) 75%,
+      hsl(345, 80%, 70%) 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  .makeup-gradient {
+    background: linear-gradient(45deg, 
+      hsl(330, 85%, 60%) 0%, 
+      hsl(280, 70%, 65%) 100%);
+  }
+
+  .virtual-preview-bg {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(252, 231, 243, 0.9) 100%);
+    backdrop-filter: blur(20px);
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .upload-zone {
+    border: 2px dashed hsl(330, 85%, 60%);
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, 
+      rgba(252, 231, 243, 0.3) 0%, 
+      rgba(255, 255, 255, 0.8) 100%);
+  }
+
+  .upload-zone:hover {
+    border-color: hsl(280, 70%, 65%);
+    background: linear-gradient(135deg, 
+      rgba(252, 231, 243, 0.5) 0%, 
+      rgba(255, 255, 255, 0.9) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(211, 9, 225, 0.1);
+  }
+
+  .shade-circle {
+    transition: all 0.3s ease;
+  }
+
+  .shade-circle:hover {
+    transform: scale(1.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .product-card {
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(252, 231, 243, 0.3) 100%);
+  }
+
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(211, 9, 225, 0.15);
+  }
+
+  .floating-makeup {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .floating-makeup:nth-child(2) {
+    animation-delay: 2s;
+  }
+
+  .floating-makeup:nth-child(3) {
+    animation-delay: 4s;
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(1deg); }
+  50% { transform: translateY(-10px) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(-1deg); }
+  50% { transform: translateY(-15px) rotate(0deg); }
+  75% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.5; transform: scale(1); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.4), 0 0 40px rgba(236, 72, 153, 0.2); 
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.6), 0 0 60px rgba(236, 72, 153, 0.4); 
+    transform: scale(1.02);
+  }
+}
+
+@keyframes gradient-flow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes makeup-sparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.7; }
+  25% { transform: scale(1.2) rotate(90deg); opacity: 1; }
+  50% { transform: scale(1.1) rotate(180deg); opacity: 0.8; }
+  75% { transform: scale(1.3) rotate(270deg); opacity: 1; }
+}
+
+@keyframes color-shift {
+  0% { filter: hue-rotate(0deg) saturate(1); }
+  25% { filter: hue-rotate(90deg) saturate(1.2); }
+  50% { filter: hue-rotate(180deg) saturate(1.1); }
+  75% { filter: hue-rotate(270deg) saturate(1.3); }
+  100% { filter: hue-rotate(360deg) saturate(1); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 4s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.shimmer {
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.gradient-flow {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient-flow 4s ease infinite;
+}
+
+.makeup-sparkle {
+  animation: makeup-sparkle 3s ease-in-out infinite;
+}
+
+.color-shift {
+  animation: color-shift 6s ease-in-out infinite;
+}
+
+/* Enhanced button styles */
+.btn-makeup {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-makeup:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+}
+
+/* Makeup product color swatches */
+.swatch-foundation { background: linear-gradient(45deg, #F7E7CE, #D4A574); }
+.swatch-lipstick { background: linear-gradient(45deg, #FF6B9D, #C44569); }
+.swatch-eyeshadow { background: linear-gradient(45deg, #A8E6CF, #7FCDCD); }
+.swatch-blush { background: linear-gradient(45deg, #FFB7B7, #FF8A8A); }
+.swatch-highlighter { background: linear-gradient(45deg, #FFE4B5, #FFD700); }
